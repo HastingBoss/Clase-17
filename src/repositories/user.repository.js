@@ -1,6 +1,5 @@
 import User from "../models/user.model.js";
 
-// Métodos DB
 class UserRepository {
     async getById(id) {
         return await User.findById(id);

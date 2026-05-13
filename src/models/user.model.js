@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-// Esquema
 const userSchema = new mongoose.Schema(
     {
         name: {
@@ -11,6 +10,11 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
             unique: true
+        },
+        emailVerified: {
+            type: Boolean,
+            required: true,
+            default: false
         },
         password: {
             type: String,
@@ -24,7 +28,6 @@ const userSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-// Modelo
 const User = mongoose.model("User", userSchema);
 
 export default User;

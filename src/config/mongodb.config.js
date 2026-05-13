@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
 import ENVIRONMENT from "./environment.config.js"
 
-// Conexión MongoDB
 const connectMongoDB = async () => {
     try{
         await mongoose.connect(
