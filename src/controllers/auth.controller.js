@@ -60,14 +60,14 @@ class AuthController {
             const { email } = req.query
             const user = await UserRepository.getByEmail(email);
             if (!user) {
-                throw new ServerError('Usuario no encontrado', 404);
+                throw new ServerError('User no encontrado', 404);
             }
             if (user.emailVerified) {
-                throw new ServerError("El email ya fue verificado", 400);
+                throw new ServerError('El email ya fue verificado', 400);
             }
             await UserRepository.updateById(user._id, { emailVerified: true });
             res.status(200).json({
-                message: "Email verificado con éxito",
+                message: 'Email verficado con éxito',
                 ok: true
             });
         } catch (error) {
